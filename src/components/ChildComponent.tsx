@@ -1,6 +1,8 @@
 import React from 'react';
 
-interface ChildComponentProps {}
+interface ChildComponentProps {
+     description: string
+}
 
 interface ChildComponentState {
     age?: number
@@ -23,6 +25,7 @@ export class ChildComponent extends React.Component<ChildComponentProps, ChildCo
                 <h2>Child Component</h2>
                 <p>AGE: {this.state.age}</p>
                 <p>NAME: {this.state.name}</p>
+                <p>PROPS FROM MAIN:  {this.props.description}</p>
             </>
         )
     }

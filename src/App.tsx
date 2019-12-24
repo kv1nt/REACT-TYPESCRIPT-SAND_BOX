@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import AppState from './store/index';
 import { Provider } from 'react-redux';
 import './App.css';

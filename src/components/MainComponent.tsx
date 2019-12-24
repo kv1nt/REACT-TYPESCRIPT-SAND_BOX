@@ -17,12 +17,17 @@ export class MainComponent extends React.Component<MainComponentProps, MainCompo
             
         }
     }
-    static defaultProps = {description:{}}
+    static defaultProps = {description:"FUCKING-PROPS-MOPS"}
+
+    click = async () =>{
+        alert("Click nah...")
+    }
 
     render() {
         return <>
                  <h1>Main Component</h1>
-                 <ChildComponent />
+                 <ChildComponent {...this.props}/>
+                 <button onClick={this.click}>Click</button>
                </>
     }
 }
