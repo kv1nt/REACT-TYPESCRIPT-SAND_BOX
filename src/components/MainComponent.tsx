@@ -3,10 +3,11 @@ import {ChildComponent} from './ChildComponent';
 
 interface MainComponentProps {
     description: string
+    clickMethod?: () => void
 }
 
 interface MainComponentState {
-
+    title: string
 }
 
 export class MainComponent extends React.Component<MainComponentProps, MainComponentState> {
@@ -14,20 +15,22 @@ export class MainComponent extends React.Component<MainComponentProps, MainCompo
         super(props)
 
         this.state = {
-            
+            title: "Initial state"
         }
     }
     static defaultProps = {description:"FUCKING-PROPS-MOPS"}
 
-    click = async () =>{
-        alert("Click nah...")
+    click = (): void =>{
+        this.setState(
+                { title:this.state.title === "Initial state" ? "Post state" : "Initial state" }
+            );   
     }
 
     render() {
         return <>
                  <h1>Main Component</h1>
-                 <ChildComponent {...this.props}/>
-                 <button onClick={this.click}>Click</button>
+                 <div>Title {this.state.title}</div>
+                 <ChildComponent {...this.props} clickMethod={this.click}/>
                </>
     }
 }
